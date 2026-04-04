@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <title>Love Forever</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <style>
 body {
@@ -11,10 +10,10 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: Arial;
 }
 
-/* 🔴 النص العربي (تم تعديله) */
+/* 🔴 النص العربي (معدل فقط) */
 .center-text{
 position:absolute;
 top:50%;
@@ -27,72 +26,61 @@ text-shadow:0 0 10px #fff, 0 0 20px red;
 letter-spacing:2px;
 z-index:1000;
 animation:pulse 2s infinite ease-in-out;
-width:300px;
 }
 
-/* روابط */
-.quick-link {
-  position: fixed;
-  right: 10px;
-  width: 35px;
-  height: 35px;
-  z-index: 999;
-  background: #696969;
-  border-radius: 50%;
-  text-align: center;
-  color: #ddd;
-  text-decoration: none;
-  line-height: 35px;
-  font-size: 13px;
-}
-
-.quick-link:nth-of-type(1) { top: 10%; }
-.quick-link:nth-of-type(2) { top: 4%; }
-.quick-link:nth-of-type(3) { top: 16%; }
-.quick-link:nth-of-type(4) { top: 22%; }
-
-/* القلب */
-#ui .love {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -200px 0 0 -200px;
-  --i: 1;
-}
-
-#ui .love_word {
-  color: #ea80b0;
-  font-size: 1.4rem;
-  transform: translateY(-100%) rotateZ(-30deg);
-  text-shadow: 0 0 10px #fff;
-  letter-spacing: 2px;
-}
-
-#ui .love_horizontal {
-  animation: horizontal 10000ms infinite alternate ease-in-out;
-  animation-delay: calc(var(--i) * -300ms);
-}
-
-#ui .love_vertical {
-  animation: vertical 20000ms infinite linear;
-  animation-delay: calc(var(--i) * -300ms);
-}
-
-/* حركة النص */
+/* نبض */
 @keyframes pulse{
 0%{transform:translate(-50%,-50%) scale(1);}
 50%{transform:translate(-50%,-50%) scale(1.1);}
 100%{transform:translate(-50%,-50%) scale(1);}
 }
 
+/* ❤️ القلب (رجعناه مثل الأصلي) */
+#ui .love {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -225px 0 0 -225px;
+  --i: 1;
+}
+
+.love_word {
+  color: #ea80b0;
+  font-size: 1.4rem;
+  transform: translateY(-100%) rotateZ(-30deg);
+  text-shadow: 0 0 10px #fff;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.love_horizontal {
+  animation: horizontal 10000ms infinite alternate ease-in-out;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+.love_vertical {
+  animation: vertical 20000ms infinite linear;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+/* الحركة الأصلية */
 @keyframes horizontal {
   from { transform: translateX(0px); }
   to   { transform: translateX(450px); }
 }
 
 @keyframes vertical {
-  0% { transform: translateY(180px); }
-  50% { transform: translateY(450px); }
+  0%   { transform: translateY(180px); }
+  10%  { transform: translateY(45px); }
+  15%  { transform: translateY(4.5px); }
+  18%  { transform: translateY(0px); }
+  20%  { transform: translateY(4.5px); }
+  22%  { transform: translateY(34px); }
+  24%  { transform: translateY(64px); }
+  25%  { transform: translateY(112px); }
+  30%  { transform: translateY(4px); }
+  50%  { transform: translateY(180px); }
+  75%  { transform: translateY(450px); }
   100% { transform: translateY(180px); }
 }
 </style>
@@ -100,14 +88,9 @@ width:300px;
 
 <body>
 
-<a href="#" class="quick-link">1</a>
-<a href="#" class="quick-link">2</a>
-<a href="#" class="quick-link">3</a>
-<a href="#" class="quick-link">4</a>
-
 <div id="ui"></div>
 
-<!-- 🔴 النص داخل القلب -->
+<!-- 🔴 النص -->
 <div class="center-text">
 ظنيتك مطر<br>
 وأترجى منك فيض<br>
