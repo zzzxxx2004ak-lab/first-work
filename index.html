@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Love Forever</title>
+
+<style>
+body {
+  background: #000;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial;
+}
+
+/* 🔴 النص العربي */
+.center-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+color:rgb(72, 211, 160);
+font-size:20px;
+text-align:center;
+text-shadow:0 0 10px #cff8ff, 0 0 20px rgb(21, 142, 217);
+letter-spacing:2px;
+z-index:1000;
+animation:pulse 2s infinite ease-in-out;
+}
+
+/* نبض */
+@keyframes pulse{
+0%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.1);}
+100%{transform:translate(-50%,-50%) scale(1);}
+}
+
+/* ❤️ القلب */
+#ui .love {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -225px 0 0 -225px;
+  --i: 1;
+}
+
+.love_word {
+  color: #ea80b0;
+  font-size: 1.4rem;
+  transform: translateY(-100%) rotateZ(-30deg);
+  text-shadow: 0 0 10px #fff;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.love_horizontal {
+  animation: horizontal 10000ms infinite alternate ease-in-out;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+.love_vertical {
+  animation: vertical 20000ms infinite linear;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+/* الحركة الأصلية */
+@keyframes horizontal {
+  from { transform: translateX(0px); }
+  to   { transform: translateX(450px); }
+}
+
+@keyframes vertical {
+  0%   { transform: translateY(180px); }
+  10%  { transform: translateY(45px); }
+  15%  { transform: translateY(4.5px); }
+  18%  { transform: translateY(0px); }
+  20%  { transform: translateY(4.5px); }
+  22%  { transform: translateY(34px); }
+  24%  { transform: translateY(64px); }
+  25%  { transform: translateY(112px); }
+  30%  { transform: translateY(4px); }
+  50%  { transform: translateY(180px); }
+  75%  { transform: translateY(450px); }
+  100% { transform: translateY(180px); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="ui"></div>
+
+<!-- 🔴 النص -->
+<div class="center-text">
+واضح بعد<br>
+ما يحتاج تتعذر<br>
+من نشفت الشفه<br>
+ولونهه تغيرر
+</div>
+
+<script>
+const N = 70;
+const ui = document.getElementById('ui');
+
+for (let i = 1; i <= N; i++) {
+  const love = document.createElement('div');
+  love.className = 'love';
+  love.style.setProperty('--i', i);
+
+  const h = document.createElement('div');
+  h.className = 'love_horizontal';
+
+  const v = document.createElement('div');
+  v.className = 'love_vertical';
+
+  const word = document.createElement('div');
+  word.className = 'love_word';
+  
+  // التناوب بين الكلمتين
+  word.textContent = (i % 2 === 1) ? 'I love you' : 'SORRY';
+
+  v.appendChild(word);
+  h.appendChild(v);
+  love.appendChild(h);
+  ui.appendChild(love);
+}
+</script>
+
+</body>
+</html>

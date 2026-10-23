@@ -1,0 +1,13 @@
+.center-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+color:lime; /* 💚 أخضر */
+font-size:20px; /* حجم مناسب */
+text-align:center;
+text-shadow:0 0 10px #fff, 0 0 20px lime;
+letter-spacing:2px;
+z-index:1000;
+animation:pulse 2s infinite ease-in-out;
+}
